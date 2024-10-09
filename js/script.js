@@ -2,6 +2,7 @@
 
 let currentPage = 'notebooks';
 const prodContainer = document.getElementsByClassName('prodContainer')[0];
+const pageTitle = document.getElementsByClassName('current-page-display')[0];
 
 const getProductDiv = (product) => {
     return `
@@ -20,6 +21,8 @@ const renderProducts = () => {
     const productsDiv = currentPage === 'notebooks' ? notebooks.map(getProductDiv).join(''):
     craft.map(getProductDiv).join('');
     prodContainer.innerHTML = productsDiv;
+    pageTitle.innerHTML = currentPage === 'notebooks'? 'מחברות' : 'כלי כתיבה';
+
 }
 
 const changePage = (pageCategory) => {
