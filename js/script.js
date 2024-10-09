@@ -9,7 +9,7 @@ const getProductDiv = (product) => {
     <p class="ptitle"> ${product.title}</p>
     <img src="${product.image}" alt="${product.title}">
     <div class="card-footer">
-    <p class="price">${product.price}</p>
+    <p class="price"> <i class="fa-solid fa-shekel-sign"></i> ${product.price}</p>
     <button class="add-to-cart">הוספה לסל</button>
     </div>
     </div>
@@ -17,7 +17,7 @@ const getProductDiv = (product) => {
 }
   
 const renderProducts = () => {
-    const productsDiv = currentPage === 'notebooks' ? notebooks.map(getProductDiv):
+    const productsDiv = currentPage === 'notebooks' ? notebooks.map(getProductDiv).join(''):
     craft.map(getProductDiv).join('');
     prodContainer.innerHTML = productsDiv;
 }
