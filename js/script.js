@@ -21,7 +21,7 @@ const renderProducts = () => {
     const productsDiv = currentPage === 'notebooks' ? notebooks.map(getProductDiv).join(''):
     craft.map(getProductDiv).join('');
     prodContainer.innerHTML = productsDiv;
-    pageTitle.innerHTML = currentPage === 'notebooks'? 'מחברות' : 'כלי כתיבה';
+    pageTitle.innerHTML = currentPage === 'notebooks'? 'מחברות' : 'מכשירי כתיבה';
 
 }
 
