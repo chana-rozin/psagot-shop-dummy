@@ -1,6 +1,9 @@
 
 
-const getProductDiv = (product) =>{
+let currentPage = 'notebooks';
+const prodContainer = document.getElementsByClassName('prodContainer')[0];
+
+const getProductDiv = (product) => {
     return `
     <div class="prod">
     <p class="ptitle"> ${product.title}</p>
@@ -12,8 +15,14 @@ const getProductDiv = (product) =>{
     </div>
     `
 }
+  
+const renderProducts = () => {
+    const productsDiv = currentPage === 'notebooks' ? notebooks.map(getProductDiv):
+    craft.map(getProductDiv).join('');
+    prodContainer.innerHTML = productsDiv;
+}
 
-const renderProducts = (products) => {
-    const productDivs = products.map(getProductDiv).join('');
-    document.getElementsByClassName('prodContainer')[0].innerHTML = productDivs;
+const changePage = (pageCategory) => {
+    currentPage = pageCategory;
+    renderProducts();
 }
