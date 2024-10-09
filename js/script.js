@@ -32,10 +32,11 @@ const renderProducts = async () => {
                 pageTitle.innerHTML = 'מכשירי כתיבה';
                 break;
             }
-        case 'clothes':
+        case 'electronics':
             {
                 try {
                     productsDiv = await fetchClothes();
+                    pageTitle.innerHTML = 'אלקטרוניקה';
 
                 } catch (error) {
                     console.error('Error:', error);
@@ -54,10 +55,11 @@ const changePage = (pageCategory) => {
 }
 
 const fetchClothes = async () => {
-    const response = await fetch('/https://fakestoreapi.com');
+    let productsDiv;
+    const response = await fetch('https://fakestoreapi.com/products/category/electronics');
     if (response.ok) {
         const data = await response.json();
-        const productsDiv = data.map(getProductDiv).join('');
+        productsDiv = data.map(getProductDiv).join('');
         pageTitle.innerHTML = 'בגדים';
     }
     else {
