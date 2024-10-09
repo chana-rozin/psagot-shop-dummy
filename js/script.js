@@ -1,3 +1,5 @@
+
+
 const getProductDiv = (product) =>{
     return `
     <div>
@@ -10,5 +12,6 @@ const getProductDiv = (product) =>{
 
 const renderProducts = (products) => {
     const productDivs = products.map(getProductDiv).join('');
-    document.getElementsByClassName('prodContainer').innerHTML = productDivs;
+    debugger
+    document.getElementsByClassName('prodContainer')[0].innerHTML = productDivs;
 }
